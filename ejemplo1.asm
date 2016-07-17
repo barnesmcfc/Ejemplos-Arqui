@@ -7,10 +7,8 @@
 ;stdin equ 0      ;~ Entrada estándar
 ;stdout equ 1     ;~ Salida estándar
 
-;Hola mundo NASM
-
 section .data
-     msg: db "Hola Mundo del NASM!", 10 ; el diez significa cambio de linea en la hilera del registro
+     msg: db "Hola Mundo del NASM y de Github!", 10 ; el diez significa cambio de linea en la hilera del registro
      len: equ $-msg 					; resta para obtener cantidad de bytes (largo del msg)
 
 section .text
