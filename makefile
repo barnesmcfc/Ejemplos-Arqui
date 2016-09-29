@@ -3,15 +3,15 @@
 NAME= ejemplo1
 CC= nasm
 
+#linker: Linkea con el archivo .o y genera el ejecutable
 $(NAME): $(NAME).o
 	ld -m elf_i386 -o $(NAME) $(NAME).o
 
-
+#Ensambla: pasa nemónicos a 1s y 0s 
 $(NAME).o: $(NAME).asm
 	$(CC) -f elf -g -F stabs $(NAME).asm -l $(NAME).lst
 
-
-.PHONY clean:
+clean:
 	rm $(NAME)
 	rm $(NAME).lst
 	rm $(NAME).o
