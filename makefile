@@ -1,7 +1,6 @@
 # Para usar este Makefile sólo basta con cambiar la variable NAME por el nombre del archivo que desee
 
-NAME= ejemplo1
-CC= nasm
+NAME= ejemplo2.1
 
 #linker: Linkea con el archivo .o y genera el ejecutable
 $(NAME): $(NAME).o
@@ -9,7 +8,7 @@ $(NAME): $(NAME).o
 
 #Ensambla: pasa nemónicos a 1s y 0s 
 $(NAME).o: $(NAME).asm
-	$(CC) -f elf -g -F stabs $(NAME).asm -l $(NAME).lst
+	nasm -f elf -g -F stabs $(NAME).asm -l $(NAME).lst
 
 clean:
 	rm $(NAME)
