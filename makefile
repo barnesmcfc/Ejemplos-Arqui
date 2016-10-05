@@ -1,6 +1,4 @@
-# Para usar este Makefile sólo basta con cambiar la variable NAME por el nombre del archivo que desee
-
-NAME= ejemplo2.1
+NAME= ejemplo3
 
 #linker: Linkea con el archivo .o y genera el ejecutable
 $(NAME): $(NAME).o
