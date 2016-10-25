@@ -1,4 +1,4 @@
-NAME= ejemplo1
+NAME= ejemplo4
 
 #linker: Linkea con el archivo .o y genera el ejecutable
 $(NAME): $(NAME).o
