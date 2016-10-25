@@ -1,20 +1,10 @@
 ;Programa que recibe el nombre de usuario y lo muestra en pantalla
-<<<<<<< HEAD
 sys_exit equ 1   		;Finaliza el programa
 sys_read equ 3   		;Lee y almacena de un archivo
 sys_write equ 4			;Escribe 
 sys_nanosleep equ 162 	;Pausa
 stdin equ 0      		;Entrada estándar (Teclado)
 stdout equ 1     		;Salida estándar (Terminal)
-=======
-sys_exit equ 1   	;Finaliza el programa
-sys_read equ 3   	;Lee y almacena de un archivo
-sys_write equ 4		;Escribe 
-sys_nanosleep equ 162 	;Pausa
-stdin equ 0      	;Entrada estándar
-stdout equ 1     	;Salida estándar
->>>>>>> f2d08fcf5d4085222bd6efba13937c243728163e
-
 
 section .data
 	msg: db "Cual es su nombre?",10			;mensaje a imprimir
@@ -40,30 +30,12 @@ despliega_mensaje1:
 lee_nombre:
 	mov ecx, lp_buffer						;Donde queda el arreglo de bytes
 	mov edx, buf_len						;Len
-<<<<<<< HEAD
 	call read
 	push eax								;Read pone en EAX la cantidad de bytes leídos al terminar
 	
 wait_sec:									;Pausa antes de desplegar mensaje final
 	mov ebx, tiempo							;Cantidad de segundos
 	call pausa
-=======
-	mov ebx, 0								;La entrada 0 es el teclado
-	mov eax, sys_read								;read
-	int 80h
-	push eax								;Read pone en EAX la cantidad de butes leídos al terminar
-
-despliega_mensaje2:
-	mov ecx, msg2
-	mov edx, len2
-	call print
-	
-wait_sec:									;Pausa antes de desplegar mensaje final
-	mov ebx, tiempo							;Cantidad de segundos
-	xor ecx,ecx 							;lo pone en 0
-	mov eax, sys_nanosleep
-	int 80h
->>>>>>> f2d08fcf5d4085222bd6efba13937c243728163e
 	
 despliega_mensaje2:
 	mov ecx, msg2
@@ -82,11 +54,7 @@ Fin:
 ;--------------------------------------SUBRUTINAS-------------------------------------------------------------------------
 read:	;Entrada: ECX: Puntero adonde quiero guardar el mensaje / EDX: Largo de memoria reservada
 	mov eax, sys_read
-<<<<<<< HEAD
 	mov ebx, stdin	
-=======
-	mov ebx, 0								;La entrada 0 es el teclado
->>>>>>> f2d08fcf5d4085222bd6efba13937c243728163e
 	int 80h
 	ret
 
@@ -96,14 +64,8 @@ print:	;Entrada: ECX: puntero a lo que se imprime / EDX: Largo
 	int 80h	
 	ret
 
-<<<<<<< HEAD
 pausa:	;Entrada: EBX:  puntero a la estructura
 	mov eax, sys_nanosleep
 	xor ecx,ecx 				
-=======
-pausa:	;Entrada puntero a la estructura en EVX
-	xor ecx,ecx 			;lo pone en 0
-	mov eax, sys_nanosleep
->>>>>>> f2d08fcf5d4085222bd6efba13937c243728163e
 	int 80h
 	ret
