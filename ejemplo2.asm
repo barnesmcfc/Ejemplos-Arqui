@@ -10,7 +10,7 @@ section .data				;Memoria inicialiada
 	len: equ $-msj			;$ se coloca en la siguiente posición 
 	msj2: db ".", 0xA		
 	len2: equ $-msj2
-	numero: dd 0b111111		;Máximo 8 dígitos en hexadecimal. Double es espacio en memoria de 32-bits, el numero que quiera
+	numero: dd 0xFFFFFFFF		;Máximo 8 dígitos en hexadecimal. Double es espacio en memoria de 32-bits, el numero que quiera
 
 section .text				
 	global _start			
